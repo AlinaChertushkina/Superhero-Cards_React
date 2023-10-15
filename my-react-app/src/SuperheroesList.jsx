@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react"; //хук useState для хранения данных о супергероях, которые мы получаем из JSON-файла. Хук useEffect для выполнения запроса на сервер и получения данных при загрузке компонента
 import SuperheroesCard from "./SuperheroesCard";
+import { data } from "./data/superheroes";
 
 const SuperheroesList = () => {
-  const [superheroes, setSuperheroes] = useState([]);
-
-  useEffect(() => {
-    fetch("superheroes.json") // Загрузка данных из JSON-файла
-      .then((response) => response.json())
-      .then((data) => setSuperheroes(data));
-  }, []);
+  const superheroes = data;
 
   return (
     <div className="superheroes-list">
